@@ -1,8 +1,5 @@
-#include <LiquidCrystal.h>
-#include <TinyGPS++.h>
-#include <SoftwareSerial.h>
 static const int RXPin = 2, TXPin = 3;
-static const uint32_t gps_baudrate = 9600;
+static const uint32_t gps_baudrate = 9500;
 TinyGPSPlus gps;
 SoftwareSerial soft(RXPin, TXPin);
 String textMessage;
@@ -38,9 +35,9 @@ void sendsms()
 {
     Serial.print("AT+CMGF=1\r");
     delay(100);
-    Serial.println("AT+CMGS =\"+9194XXXXXX\"");
+    Serial.println("AT+CMGS =\"+90507xxxxxxx\"");
     delay(100);
-    Serial.println("I want Help !!!Location:" + String("Lat: ") +String(Lat) + " "+String("Lon: ") + String(Lon));
+    Serial.println("I need help. This is my location:" + String("Lat: ") +String(Lat) + " "+String("Lon: ") + String(Lon));
     delay(100);
     Serial.println((char)26);
     delay(100);
